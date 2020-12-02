@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Ik ben geboren op: <p id="dag"></p> - <p id="maand"></p> - <p id="jaar"></p></p>
+</body>
+</html>
+<script>    
+function toonDatum(){
+    var d = new Date();
+    document.getElementById("dag").innerHTML= d.getDate();
+    document.getElementById("maand").innerHTML = d.getMonth();
+    document.getElementById("jaar").innerHTML = d.getFullYear(); 
+}
+
+window.addEventListener('DOMContentLoaded', toonDatum);
+</script>
