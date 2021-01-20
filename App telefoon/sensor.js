@@ -1,4 +1,3 @@
-
 // activeer de Device Orientation API
 window.addEventListener('deviceorientation', handleOrientation);
 
@@ -36,13 +35,22 @@ function showDataColor(alpha, beta, gamma){
 
 function activateVoice(alpha, beta, gamma){
     // voice if Z-axis rotation > value
-    if(alpha > 120){
-        let myTxt = "Peanut.";  
+    if(alpha < 120){
+        let myTxt = "Dit is een andere tekst dan wat er eerst stond.";  
         sayItLoud(myTxt); // text 2 speech
 
         // laat het ook in de HTML zien
         document.getElementById('voice').innerHTML = myTxt;
         }
+
+    else if(alpha > 120) {
+        let myTxt = "Dit is nog een tekst, maar dan boven 120 graden.";  
+        sayItLoud(myTxt); // text 2 speech
+
+        // laat het ook in de HTML zien
+        document.getElementById('voice').innerHTML = myTxt;
+        }
+
     else{
         // haal de tekst weg
         document.getElementById('voice').innerHTML = "";
@@ -51,10 +59,15 @@ function activateVoice(alpha, beta, gamma){
 
 function showMyImage(alpha, beta, gamma){
     // image if X-axis > value
-    if(beta > 40){
-        document.getElementById('myImage').src = "https://media.nu.nl/m/2w2xghiaiav3_wd1280.jpg/patrick-ster-uit-animatieserie-spongebob-squarepants-krijgt-eigen-serie.jpg"; // show image
-        }
-        else {
-            document.getElementById('myImage').src = ""; // no image
-        }
+    if(beta < 120){
+        document.getElementById('myImage').src = "https://media.nu.nl/m/ej3x15ha7vq3_wd1280.jpg/google-verwijdert-afbeelding-bekijken-knop-zoekresultaten.jpg"; // show image
+    }
+
+    else if (beta > 120){
+        document.getElementById("myImage").src = "https://i.ytimg.com/vi/LicRfVAyHWg/maxresdefault.jpg"
+    }
+
+    else {
+        document.getElementById('myImage').src = ""; // no image
+    }
 }
